@@ -19,9 +19,9 @@
 .rollHelp{text-align:center;color:#718099;font-size:11px;margin:10px 0 2px}.rollHelp b{color:#ffd22e}.deviceTitle{text-align:center;margin:15px 0 8px;color:#718099;font-size:10px;letter-spacing:2px;font-weight:1000}.deviceButtons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.deviceBtn{border:1px solid #293a55;background:#080f20;color:#9daec2;border-radius:13px;padding:12px;font-weight:1000;cursor:pointer}.deviceBtn.active{background:#132b55;border-color:#4b8cff;color:#fff;box-shadow:0 0 18px #2868ff44}
 #rngPanel{display:none !important;position:fixed;inset:0;background:radial-gradient(circle,#201642,#070a14 75%);align-items:center;justify-content:center;z-index:20;padding:20px}.rngCard{width:min(92vw,650px);text-align:center;padding:24px;border-radius:24px;background:#0b1225;border:1px solid #2c3c59;box-shadow:0 20px 90px #000}.rngTitle{font-size:13px;letter-spacing:4px;color:#8fa5bd}.rollingName{height:120px;display:flex;align-items:center;justify-content:center;font-size:clamp(42px,11vw,78px);font-weight:1000;text-shadow:0 0 28px currentColor}.rollingRarity{font-size:20px;font-weight:900;min-height:30px}.bar{height:7px;background:#172437;border-radius:10px;overflow:hidden;margin:22px 0}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b34f7,#2d78ff)}
 #game{display:none;position:fixed;inset:0;background:#050914}.gameTop{position:fixed;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:center;z-index:8}.gameHud{display:flex;gap:8px;flex-wrap:wrap}.hudBox{background:#07101ddd;border:1px solid #2a415b;border-radius:12px;padding:8px 11px;box-shadow:0 5px 20px #0007}.hudBox b{font-size:16px}.tiny{font-size:9px;color:#91a5ba;text-transform:uppercase;display:block}.exitBtn{border:1px solid #5b3140;background:#2a1018;color:#fff;border-radius:11px;padding:10px 14px;font-weight:1000;cursor:pointer}.exitBtn:active{transform:scale(.97)}
-canvas{width:100%;height:100%;display:block}.hintPanel{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);background:#07101de8;border:1px solid #2a415b;border-radius:14px;padding:9px 14px;text-align:center;z-index:5;pointer-events:none}.hintPanel b{font-weight:1000}.hint{font-size:11px;color:#9fb0c2}#mobileFire{display:none;position:fixed;right:24px;bottom:78px;width:92px;height:92px;border-radius:50%;border:2px solid #ffffff66;background:#e84141dd;color:#fff;font-weight:1000;font-size:15px;z-index:7;box-shadow:0 8px 30px #0008}#mobileTip{display:none;position:fixed;left:50%;bottom:82px;transform:translateX(-50%);z-index:7;background:#07101de8;border:1px solid #304863;border-radius:12px;padding:8px 12px;font-size:11px;color:#b8c8d8}.flash{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:0}
+canvas{width:100%;height:100%;display:block}.hintPanel{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);background:#07101de8;border:1px solid #2a415b;border-radius:14px;padding:9px 14px;text-align:center;z-index:5;pointer-events:none}.hintPanel b{font-weight:1000}.hint{font-size:11px;color:#9fb0c2}#skillPanel{position:fixed;right:18px;bottom:78px;display:flex;gap:8px;z-index:7}#skillPanel button{border:1px solid #ffffff44;border-radius:14px;padding:10px 12px;background:#101b31;color:#fff;font-weight:1000;box-shadow:0 8px 24px #0008;min-width:108px}#skillPanel button:disabled{opacity:.45;filter:grayscale(.5)}#skillBurst{background:linear-gradient(90deg,#7a24ff,#e12d70)!important}#skillShield{background:linear-gradient(90deg,#1687ff,#16c8ff)!important}#skillStatus{position:fixed;right:18px;bottom:145px;z-index:7;background:#07101de8;border:1px solid #304863;border-radius:12px;padding:7px 10px;font-size:11px;font-weight:900;color:#b8c8d8}#mobileFire{display:none;position:fixed;right:24px;bottom:78px;width:92px;height:92px;border-radius:50%;border:2px solid #ffffff66;background:#e84141dd;color:#fff;font-weight:1000;font-size:15px;z-index:7;box-shadow:0 8px 30px #0008}#mobileTip{display:none;position:fixed;left:50%;bottom:82px;transform:translateX(-50%);z-index:7;background:#07101de8;border:1px solid #304863;border-radius:12px;padding:8px 12px;font-size:11px;color:#b8c8d8}.flash{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:0}
 #gameOver{display:none;position:fixed;inset:0;z-index:30;align-items:center;justify-content:center;background:#030611cc;backdrop-filter:blur(6px);padding:20px}.gameOverCard{width:min(90vw,460px);text-align:center;background:#0b1225;border:1px solid #33445f;border-radius:24px;padding:28px;box-shadow:0 25px 90px #000}.gameOverCard h2{margin:0;font-size:40px;color:#ff4050}.gameOverCard p{color:#9eb0c5;margin:10px 0 20px}.gameOverCard b{color:#ffd22e}.overBtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.overBtns button{border:0;border-radius:14px;padding:14px;font-weight:1000;cursor:pointer}.retry{background:linear-gradient(90deg,#8b34f7,#286cff);color:#fff}.menuBtn{background:#26354d;color:#fff}
-@media(max-width:430px){.menuWrap{width:92vw}.header h1{font-size:38px}.playerCard{padding:14px}.stats{grid-template-columns:1.25fr 1fr 1fr;gap:7px}.stat{font-size:14px}.mainCard{padding:12px}.resultBox{height:270px}.buttons{grid-template-columns:1fr 1fr}.btn{font-size:15px;padding:15px 8px}.rarityGrid{grid-template-columns:repeat(3,1fr)}.rarity{min-height:62px}.bottomLinks{font-size:12px}}
+@media(max-width:700px){#skillPanel{right:12px;bottom:184px;flex-direction:column}.skillStatus{right:12px;bottom:172px}}@media(max-width:430px){.menuWrap{width:92vw}.header h1{font-size:38px}.playerCard{padding:14px}.stats{grid-template-columns:1.25fr 1fr 1fr;gap:7px}.stat{font-size:14px}.mainCard{padding:12px}.resultBox{height:270px}.buttons{grid-template-columns:1fr 1fr}.btn{font-size:15px;padding:15px 8px}.rarityGrid{grid-template-columns:repeat(3,1fr)}.rarity{min-height:62px}.bottomLinks{font-size:12px}}
 @media(max-width:340px){.buttons,.deviceButtons{grid-template-columns:1fr}.rarityGrid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
@@ -66,7 +66,7 @@ canvas{width:100%;height:100%;display:block}.hintPanel{position:fixed;left:50%;b
   <canvas id="canvas"></canvas>
   <div class="gameTop"><div class="gameHud"><div class="hudBox"><span class="tiny">Apelido</span><b id="hudName">Nicolas</b><div id="hudRarity">COMUM</div></div><div class="hudBox"><span class="tiny">Pontos</span><b id="score">0</b></div><div class="hudBox"><span class="tiny">Vida</span><b id="hp">100</b></div><div class="hudBox"><span class="tiny">Dano</span><b id="damage">8</b></div><div class="hudBox"><span class="tiny">Tiros/clique</span><b id="shotCount">1</b></div></div><button id="back" class="exitBtn">✕ SAIR</button></div>
   <div class="hintPanel"><b id="powerName">Nicolas • COMUM</b></div>
-  <button id="mobileFire">🔫<br>ATIRAR</button><div id="mobileTip">Arraste o dedo para mirar e aperte ATIRAR</div>
+  <div id="skillStatus">🔫 Próximo tiro: pronto</div><div id="skillPanel"><button id="skillBurst">🔥 RAJADA<br><small>5 TIROS</small></button><button id="skillShield">🛡️ ESCUDO<br><small>3 ACERTOS</small></button></div><button id="mobileFire">🔫<br>ATIRAR</button><div id="mobileTip">Arraste o dedo para mirar e aperte ATIRAR</div>
   <div id="gameOver"><div class="gameOverCard"><h2>💥 VOCÊ PERDEU!</h2><p>Suas vidas chegaram a <b>0</b>.</p><p>Pontuação da partida: <b id="finalScore">0</b></p><div class="overBtns"><button class="retry" id="retryBtn">🔄 JOGAR NOVAMENTE</button><button class="menuBtn" id="overMenuBtn">✕ SAIR</button></div></div></div>
 </section>
 <div id="flash" class="flash"></div><section id="pvpScreen" class="pvpScreen">
@@ -273,6 +273,8 @@ document.getElementById('retryBtn').onclick=()=>{document.getElementById('gameOv
 document.getElementById('overMenuBtn').onclick=()=>document.getElementById('back').click();
 addEventListener('keydown',e=>{
  if(deviceMode==='pc' && e.code==='Space'){e.preventDefault();shoot(aimX||W/2,aimY||H/2)}
+ if(deviceMode==='pc' && e.code==='KeyQ'){e.preventDefault();burstSkill()}
+ if(deviceMode==='pc' && e.code==='KeyE'){e.preventDefault();shieldSkill()}
 });
 
 
@@ -302,19 +304,45 @@ function pvpLoseSnd(){initAudio();snd(392,.16,'sawtooth',.05,-90);setTimeout(()=
 function pvpEnemyHitSnd(){initAudio();snd(180,.08,'square',.035,80)}
 const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');
 let W=0,H=0,rocks=[],shots=[],parts=[],score=0,life=100,spawn=0,player={x:0,y:0},gameOver=false;
+let lastShotAt=0, burstReadyAt=0, shieldReadyAt=0, shieldHits=0, shieldActive=false;
+const NORMAL_SHOT_COOLDOWN=2000, BURST_COOLDOWN=8000, SHIELD_COOLDOWN=12000;
 function resize(){W=canvas.width=innerWidth*devicePixelRatio;H=canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';player.x=W/2;player.y=H-100*devicePixelRatio}
 addEventListener('resize',resize);resize();
 function shotCountFor(r){const map={comum:1,raro:2,epico:3,lendario:4,mitico:5,secreto:6};return map[r.k]||1}
-function resetGame(){score=0;life=current?current.h:100;rocks=[];shots=[];parts=[];spawn=1;gameOver=false;player.x=W/2;player.y=H-100*devicePixelRatio;document.getElementById('score').textContent=0;document.getElementById('hp').textContent=life;document.getElementById('shotCount').textContent=shotCountFor(current);document.getElementById('gameOver').style.display='none';document.getElementById('powerName').textContent=currentName+' • '+current.n+' • '+shotCountFor(current)+' TIRO'+(shotCountFor(current)>1?'S':''); spawnRock();}
-function shoot(x,y){initAudio();shotSnd();
- if(gameOver)return;
- const dx=x-player.x,dy=y-player.y,base=Math.atan2(dy,dx),count=shotCountFor(current);
- const spread=count===1?0:(Math.min(.42,.10+count*.045));
+function resetGame(){score=0;life=current?current.h:100;rocks=[];shots=[];parts=[];spawn=1;gameOver=false;lastShotAt=0;burstReadyAt=0;shieldReadyAt=0;shieldHits=0;shieldActive=false;player.x=W/2;player.y=H-100*devicePixelRatio;document.getElementById('score').textContent=0;document.getElementById('hp').textContent=life;document.getElementById('shotCount').textContent=shotCountFor(current);document.getElementById('gameOver').style.display='none';document.getElementById('powerName').textContent=currentName+' • '+current.n+' • '+shotCountFor(current)+' TIRO'+(shotCountFor(current)>1?'S':''); spawnRock();}
+function fireProjectiles(x,y,count=shotCountFor(current),ignoreCooldown=false){
+ if(gameOver)return false;
+ const now=Date.now();
+ if(!ignoreCooldown && now-lastShotAt<NORMAL_SHOT_COOLDOWN)return false;
+ if(!ignoreCooldown)lastShotAt=now;
+ initAudio();shotSnd();
+ const dx=x-player.x,dy=y-player.y,base=Math.atan2(dy,dx);
+ const spread=count===1?0:Math.min(.42,.10+count*.045);
  for(let i=0;i<count;i++){
    const a=base+(i-(count-1)/2)*spread;
    shots.push({x:player.x,y:player.y,vx:Math.cos(a)*18,vy:Math.sin(a)*18,life:70,d:current.d});
  }
+ return true;
 }
+function shoot(x,y){return fireProjectiles(x,y,shotCountFor(current),false)}
+function burstSkill(){
+ const now=Date.now(); if(gameOver||now<burstReadyAt)return;
+ if(fireProjectiles(aimX||W/2,aimY||H/2,5,true)){burstReadyAt=now+BURST_COOLDOWN;skillSnd();}
+}
+function shieldSkill(){
+ const now=Date.now(); if(gameOver||now<shieldReadyAt||shieldActive)return;
+ shieldActive=true;shieldHits=3;shieldReadyAt=now+SHIELD_COOLDOWN;skillSnd();
+}
+function skillSnd(){initAudio();snd(760,.12,'square',.045,260)}
+function updateSkillUI(){
+ const now=Date.now(),fireLeft=Math.max(0,NORMAL_SHOT_COOLDOWN-(now-lastShotAt)),burstLeft=Math.max(0,burstReadyAt-now),shieldLeft=Math.max(0,shieldReadyAt-now);
+ const burst=document.getElementById('skillBurst'),shield=document.getElementById('skillShield'),st=document.getElementById('skillStatus');
+ burst.disabled=gameOver||burstLeft>0; shield.disabled=gameOver||shieldActive||shieldLeft>0;
+ burst.innerHTML=burstLeft>0?'🔥 RAJADA<br><small>'+Math.ceil(burstLeft/1000)+'s</small>':'🔥 RAJADA<br><small>5 TIROS</small>';
+ shield.innerHTML=shieldActive?'🛡️ ESCUDO<br><small>'+shieldHits+' RESTANTES</small>':shieldLeft>0?'🛡️ ESCUDO<br><small>'+Math.ceil(shieldLeft/1000)+'s</small>':'🛡️ ESCUDO<br><small>3 ACERTOS</small>';
+ st.textContent=shieldActive?'🛡️ Escudo ativo: '+shieldHits+' acertos restantes':fireLeft>0?'🔫 Próximo tiro: '+(fireLeft/1000).toFixed(1)+'s':'🔫 Próximo tiro: pronto';
+}
+setInterval(updateSkillUI,100);
 canvas.addEventListener('pointermove',e=>{aimX=e.clientX*devicePixelRatio;aimY=e.clientY*devicePixelRatio});
 canvas.addEventListener('pointerdown',e=>{
   aimX=e.clientX*devicePixelRatio; aimY=e.clientY*devicePixelRatio;
@@ -323,6 +351,9 @@ canvas.addEventListener('pointerdown',e=>{
 document.getElementById('mobileFire').addEventListener('pointerdown',e=>{
   e.preventDefault(); shoot(aimX||W/2,aimY||H/2);
 });
+document.getElementById('skillBurst').addEventListener('pointerdown',e=>{e.preventDefault();burstSkill()});
+document.getElementById('skillShield').addEventListener('pointerdown',e=>{e.preventDefault();shieldSkill()});
+
 function spawnRock(){let r=25+Math.random()*28,h=35+r*1.3+score/1000*10;rocks.push({x:r+Math.random()*(W-r*2),y:-r,r,h,max:h,v:1+Math.random()*1.5})}
 function endGame(){if(gameOver)return;gameOver=true;document.getElementById('finalScore').textContent=score;document.getElementById('gameOver').style.display='flex';document.getElementById('mobileFire').style.display='none';}
 function update(){
@@ -333,7 +364,11 @@ function update(){
  for(const s of shots)for(const r of rocks)if(!s.hit&&Math.hypot(s.x-r.x,s.y-r.y)<r.r+7){s.hit=true;r.h-=s.d;hitSnd();parts.push({x:r.x,y:r.y,t:'-'+s.d,life:35,vx:0,vy:-1});break}
  shots=shots.filter(s=>s.life>0&&!s.hit);
  for(const r of rocks)if(r.h<=0&&!r.dead){r.dead=true;score+=100;addXP(10);destroySnd();coins+=100;document.getElementById('menuScore').textContent=coins;for(let i=0;i<15;i++)parts.push({x:r.x,y:r.y,t:'',life:30,vx:(Math.random()-.5)*7,vy:(Math.random()-.5)*7})}
- for(const r of rocks)if(!r.dead&&r.y-r.r>H){r.dead=true;life=Math.max(0,life-10);document.getElementById('hp').textContent=life;if(life<=0){endGame();break}}
+ for(const r of rocks)if(!r.dead&&r.y-r.r>H){
+   r.dead=true;
+   if(shieldActive){shieldHits--;if(shieldHits<=0)shieldActive=false;hitSnd();}
+   else {life=Math.max(0,life-10);document.getElementById('hp').textContent=life;if(life<=0){endGame();break}}
+ }
  rocks=rocks.filter(r=>!r.dead);for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.life--}parts=parts.filter(p=>p.life>0);
  document.getElementById('score').textContent=score;
 }
@@ -344,6 +379,7 @@ function draw(){
  for(const r of rocks){ctx.beginPath();ctx.arc(r.x,r.y,r.r,0,7);ctx.fillStyle='#68727e';ctx.fill();ctx.strokeStyle='#b6bec8';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#e14b4b';ctx.fillRect(r.x-r.r,r.y-r.r-10,r.r*2,5);ctx.fillStyle='#49e26d';ctx.fillRect(r.x-r.r,r.y-r.r-10,r.r*2*Math.max(0,r.h/r.max),5);ctx.fillStyle='#fff';ctx.font='bold 12px Arial';ctx.textAlign='center';ctx.fillText(Math.max(0,Math.ceil(r.h)),r.x,r.y+4)}
  for(const s of shots){ctx.beginPath();ctx.arc(s.x,s.y,6,0,7);const active=current||R[0];ctx.fillStyle=active.c==='rgb'?`hsl(${Date.now()/3%360} 100% 60%)`:active.c;ctx.shadowBlur=18;ctx.shadowColor=ctx.fillStyle;ctx.fill();ctx.shadowBlur=0}
  const active=current||R[0];const shipColor=active.c==='rgb'?`hsl(${Date.now()/3%360} 100% 60%)`:active.c;
+ if(shieldActive){ctx.save();ctx.beginPath();ctx.arc(player.x,player.y,52*devicePixelRatio,0,Math.PI*2);ctx.strokeStyle='#31c8ff';ctx.lineWidth=5*devicePixelRatio;ctx.shadowBlur=25;ctx.shadowColor='#31c8ff';ctx.stroke();ctx.restore();}
  ctx.save();ctx.translate(player.x,player.y);ctx.shadowBlur=22;ctx.shadowColor=shipColor;ctx.fillStyle=shipColor;ctx.beginPath();ctx.moveTo(0,-34);ctx.lineTo(27,25);ctx.lineTo(0,16);ctx.lineTo(-27,25);ctx.closePath();ctx.fill();ctx.shadowBlur=0;ctx.fillStyle='#07101d';ctx.beginPath();ctx.arc(0,3,7,0,7);ctx.fill();ctx.fillStyle='#dce8f4';ctx.fillRect(-4,8,8,15);ctx.restore();
  for(const p of parts){ctx.globalAlpha=p.life/35;if(p.t){ctx.fillStyle='#fff';ctx.font='bold 15px Arial';ctx.fillText(p.t,p.x,p.y)}else{ctx.fillStyle='#c8d0da';ctx.beginPath();ctx.arc(p.x,p.y,3,0,7);ctx.fill()}ctx.globalAlpha=1}
  requestAnimationFrame(loop)
