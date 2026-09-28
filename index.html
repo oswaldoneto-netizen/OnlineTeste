@@ -89,13 +89,15 @@ const R=[
 ];
 let current=null, currentName='???', rolling=false, coins=100, hasCharacter=false, rollTimer=null, rollToken=0;
 const PROFILE_KEY='rng_pedras_profile_v2';
-let profile={nick:'',level:1,xp:0};
-function loadProfile(){try{const p=JSON.parse(localStorage.getItem(PROFILE_KEY)||'null');if(p){profile.nick=String(p.nick||'').slice(0,16);profile.level=Math.max(1,+p.level||1);profile.xp=Math.max(0,+p.xp||0);}}catch(e){} const el=document.getElementById('playerName'); if(profile.nick) el.value=profile.nick; updateProfileUI(); syncPlayer();}
+let profile={nick:'',level:1,xp:0,wins:0,rank:'Sem Rank'};
+function rankForWins(w){w=+w||0;if(w>=30)return 'Champion';if(w>=25)return 'Diamante';if(w>=20)return 'Platina';if(w>=15)return 'Ouro';if(w>=10)return 'Prata';if(w>=5)return 'Bronze';return 'Sem Rank'}
+function rankColor(r){return ({'Sem Rank':'#fff','Bronze':'#cd7f32','Prata':'#c0c0c0','Ouro':'#ffd700','Platina':'#7ee6e8','Diamante':'#55b9ff','Champion':'#ff4d9d'})[r]||'#fff'}
+function loadProfile(){try{const p=JSON.parse(localStorage.getItem(PROFILE_KEY)||'null');if(p){profile.nick=String(p.nick||'').slice(0,16);profile.level=Math.max(1,+p.level||1);profile.xp=Math.max(0,+p.xp||0);profile.wins=Math.max(0,+p.wins||0);profile.rank=String(p.rank||rankForWins(profile.wins));}}catch(e){} const el=document.getElementById('playerName'); if(profile.nick) el.value=profile.nick; updateProfileUI(); syncPlayer();}
 function saveProfile(){profile.nick=(document.getElementById('playerName').value||'').trim().slice(0,16)||'Player1'; try{localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));}catch(e){} updateProfileUI(); syncPlayer();}
 function updateProfileUI(){document.getElementById('menuLevel').textContent=profile.level;document.getElementById('menuXp').textContent=profile.xp;document.getElementById('hudName').textContent=profile.nick||'Player1';}
 function addXP(n){profile.xp+=n;while(profile.xp>=100){profile.xp-=100;profile.level++;} saveProfile();}
-async function syncPlayer(){if(!profile.nick)return;try{await fetch('/api/player',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nick:profile.nick,level:profile.level,xp:profile.xp})});}catch(e){}}
-async function loadLeaderboard(){try{const r=await fetch('/api/leaderboard');if(!r.ok)return;const d=await r.json();document.getElementById('onlineCount').textContent='🟢 '+(d.online||0)+' online';document.getElementById('leaderRows').innerHTML=(d.players||[]).map((p,i)=>`<div style="display:grid;grid-template-columns:32px 1fr auto;gap:8px;align-items:center;background:#0b1225;border-radius:10px;padding:8px 10px"><b>${i+1}º</b><span style="font-weight:900">${esc(p.nick)}</span><span style="color:#42a9ff;font-weight:900">Nv.${p.level} • ${p.xp}/100 XP</span></div>`).join('')||'<div style="color:#7f8da2;text-align:center">Nenhum jogador salvo</div>';}catch(e){}}
+async function syncPlayer(){if(!profile.nick)return;try{await fetch('/api/player',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nick:profile.nick,level:profile.level,xp:profile.xp,wins:profile.wins})});}catch(e){}}
+async function loadLeaderboard(){try{const r=await fetch('/api/leaderboard');if(!r.ok)return;const d=await r.json();document.getElementById('onlineCount').textContent='🟢 '+(d.online||0)+' online';document.getElementById('leaderRows').innerHTML=(d.players||[]).map((p,i)=>{const r=p.rank||rankForWins(p.wins||0);const col=p.rankColor||rankColor(r);return `<div style="display:grid;grid-template-columns:32px 1fr auto;gap:8px;align-items:center;background:#0b1225;border-radius:10px;padding:8px 10px"><b>${i+1}º</b><span style="font-weight:900;color:${col};text-shadow:0 0 10px ${col}44">${esc(p.nick)} <small style="opacity:.9">• ${r}</small></span><span style="color:#42a9ff;font-weight:900">Nv.${p.level} • ${p.xp}/100 XP</span></div>`}).join('')||'<div style="color:#7f8da2;text-align:center">Nenhum jogador salvo</div>';}catch(e){}}
 function esc(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[c]));}
 
 const menu=document.getElementById('menu'), panel=document.getElementById('rngPanel');
@@ -360,7 +362,7 @@ function pvpSend(o){if(pvpWS&&pvpWS.readyState===1)pvpWS.send(JSON.stringify(o))
 function pvpConnect(){
  if(pvpWS&&pvpWS.readyState<=1)return;
  const proto=location.protocol==='https:'?'wss':'ws'; pvpWS=new WebSocket(`${proto}://${location.host}/ws`);
- pvpWS.onopen=()=>{pvpSend({type:'join',nick:profile.nick||'Player1',level:profile.level||1,rarity:current?.k||'comum',hp:100});pvpSetStatus('Procurando outro jogador...')};
+ pvpWS.onopen=()=>{pvpSend({type:'join',nick:profile.nick||'Player1',level:profile.level||1,rarity:current?.k||'comum',hp:100,wins:profile.wins});pvpSetStatus('Procurando outro jogador...')};
  pvpWS.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch{return}
    if(m.type==='welcome'){pvpId=m.id}
    if(m.type==='waiting'){pvpSetStatus('Aguardando adversário...')}
@@ -368,8 +370,8 @@ function pvpConnect(){
    if(m.type==='state'&&m.id!==pvpId){pvpEnemy=m.player;document.getElementById('pvpEnemyName').textContent=pvpEnemy.nick;document.getElementById('pvpEnemyHp').textContent=pvpEnemy.hp}
    if(m.type==='hit'&&m.target===pvpId){pvpMe.hp=m.hp;document.getElementById('pvpMyHp').textContent=m.hp;pvpHitSnd()}
    if(m.type==='enemyHit'){pvpEnemyHitSnd()}
-   if(m.type==='win'){pvpRunning=false;pvpSetStatus('🏆 Você venceu!');pvpWinSnd();document.getElementById('pvpMenu').style.display='flex'}
-   if(m.type==='lose'){pvpRunning=false;pvpSetStatus('💥 Você perdeu!');pvpLoseSnd();document.getElementById('pvpMenu').style.display='flex'}
+   if(m.type==='win'){profile.wins=Math.max(profile.wins,+m.wins||0);profile.rank=m.rank||rankForWins(profile.wins);saveProfile();syncPlayer();loadLeaderboard();pvpRunning=false;pvpSetStatus(`🏆 Você venceu! ${profile.rank} • ${profile.wins} vitórias`);pvpWinSnd();document.getElementById('pvpMenu').style.display='flex'}
+   if(m.type==='lose'){profile.wins=Math.max(profile.wins,+m.wins||0);profile.rank=m.rank||rankForWins(profile.wins);saveProfile();syncPlayer();loadLeaderboard();pvpRunning=false;pvpSetStatus(`💥 Você perdeu! ${profile.rank} • ${profile.wins} vitórias`);pvpLoseSnd();document.getElementById('pvpMenu').style.display='flex'}
    if(m.type==='left'){pvpEnemy=null;pvpRunning=false;pvpSetStatus('O adversário saiu.');document.getElementById('pvpMenu').style.display='flex'}
  };
  pvpWS.onclose=()=>{pvpRunning=false;if(pvpScreen.style.display==='block')pvpSetStatus('Conexão encerrada. Tente novamente.')};

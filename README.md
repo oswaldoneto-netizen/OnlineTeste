@@ -1,11 +1,7 @@
-# RNG Pedras Online + PvP
+RNG Pedras Online PvP v7
 
-## Render
-Build Command: `npm install`
-Start Command: `npm start`
+Novidades: rank por vitórias (5 Bronze, 10 Prata, 15 Ouro, 20 Platina, 25 Diamante, 30 Champion), rank colorido no Top 5 e vitórias salvas no mesmo players.json.
 
-O modo PvP usa WebSocket em `/ws`, então deve ser publicado como um Web Service Node no Render (não como site estático).
+IMPORTANTE: ao atualizar seu site principal, preserve o players.json atual para manter Levels/XP/Nicks/Top 5. O servidor v7 mescla os dados existentes e adiciona wins sem resetar Level/XP.
 
-
-V6: PvP com sons de tiro/acerto/vitoria/derrota, tela cheia e movimento mais rapido.
-Dados de jogadores permanecem em players.json; nao substitua esse arquivo ao atualizar uma instalacao existente.
+Render Start Command: npm start
