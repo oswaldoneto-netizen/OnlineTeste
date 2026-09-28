@@ -1,8 +1,1 @@
-{
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "ws": "^8.18.3"
-  }
-}
+{"name":"rng-pedras-pvp","version":"1.0.0","private":true,"scripts":{"start":"node server.js"},"dependencies":{"ws":"^8.18.0"},"engines":{"node":">=18"}}
