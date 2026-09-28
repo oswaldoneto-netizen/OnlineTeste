@@ -294,6 +294,10 @@ function rollSnd(){initAudio();snd(220,.055,'square',.035,120)}
 function shotSnd(){initAudio();snd(620,.07,'sawtooth',.035,-180)}
 function hitSnd(){initAudio();snd(110,.09,'triangle',.045,90)}
 function destroySnd(){initAudio();snd(360,.11,'square',.04,300)}
+function pvpHitSnd(){initAudio();snd(95,.14,'sawtooth',.06,-55);setTimeout(()=>snd(55,.11,'triangle',.04,-20),55)}
+function pvpWinSnd(){initAudio();snd(523,.12,'square',.045,90);setTimeout(()=>snd(659,.14,'square',.05,110),120);setTimeout(()=>snd(784,.22,'triangle',.055,120),260)}
+function pvpLoseSnd(){initAudio();snd(392,.16,'sawtooth',.05,-90);setTimeout(()=>snd(262,.22,'sawtooth',.055,-80),160);setTimeout(()=>snd(196,.28,'triangle',.045,-50),340)}
+function pvpEnemyHitSnd(){initAudio();snd(180,.08,'square',.035,80)}
 const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');
 let W=0,H=0,rocks=[],shots=[],parts=[],score=0,life=100,spawn=0,player={x:0,y:0},gameOver=false;
 function resize(){W=canvas.width=innerWidth*devicePixelRatio;H=canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';player.x=W/2;player.y=H-100*devicePixelRatio}
@@ -362,9 +366,10 @@ function pvpConnect(){
    if(m.type==='waiting'){pvpSetStatus('Aguardando adversário...')}
    if(m.type==='match'){pvpRoom=m.room;pvpEnemy=m.enemy;pvpMe={x:m.you.x,hp:m.you.hp};document.getElementById('pvpMenu').style.display='none';document.getElementById('pvpEnemyName').textContent=m.enemy.nick;document.getElementById('pvpEnemyHp').textContent=m.enemy.hp;pvpRunning=true;pvpSetStatus('')}
    if(m.type==='state'&&m.id!==pvpId){pvpEnemy=m.player;document.getElementById('pvpEnemyName').textContent=pvpEnemy.nick;document.getElementById('pvpEnemyHp').textContent=pvpEnemy.hp}
-   if(m.type==='hit'&&m.target===pvpId){pvpMe.hp=m.hp;document.getElementById('pvpMyHp').textContent=m.hp}
-   if(m.type==='win'){pvpRunning=false;pvpSetStatus('🏆 Você venceu!');document.getElementById('pvpMenu').style.display='flex'}
-   if(m.type==='lose'){pvpRunning=false;pvpSetStatus('💥 Você perdeu!');document.getElementById('pvpMenu').style.display='flex'}
+   if(m.type==='hit'&&m.target===pvpId){pvpMe.hp=m.hp;document.getElementById('pvpMyHp').textContent=m.hp;pvpHitSnd()}
+   if(m.type==='enemyHit'){pvpEnemyHitSnd()}
+   if(m.type==='win'){pvpRunning=false;pvpSetStatus('🏆 Você venceu!');pvpWinSnd();document.getElementById('pvpMenu').style.display='flex'}
+   if(m.type==='lose'){pvpRunning=false;pvpSetStatus('💥 Você perdeu!');pvpLoseSnd();document.getElementById('pvpMenu').style.display='flex'}
    if(m.type==='left'){pvpEnemy=null;pvpRunning=false;pvpSetStatus('O adversário saiu.');document.getElementById('pvpMenu').style.display='flex'}
  };
  pvpWS.onclose=()=>{pvpRunning=false;if(pvpScreen.style.display==='block')pvpSetStatus('Conexão encerrada. Tente novamente.')};
@@ -372,7 +377,7 @@ function pvpConnect(){
 function pvpOpen(){saveProfile();document.getElementById('pvpMyName').textContent=profile.nick||'Player1';pvpScreen.style.display='block';document.getElementById('pvpMenu').style.display='flex';document.getElementById('pvpMyHp').textContent=100;pvpSetStatus('Pronto para procurar adversário.');pvpConnect()}
 function pvpClose(){pvpSend({type:'leave'});pvpRunning=false;pvpScreen.style.display='none';if(pvpWS){pvpWS.close();pvpWS=null}}
 function pvpFire(){if(!pvpRunning)return; pvpShots.push({x:pvpMe.x*pvpCanvas.width,y:pvpCanvas.height-145*devicePixelRatio,v:-18*devicePixelRatio,c:current?.c||'#fff'}); pvpSend({type:'shoot',x:pvpMe.x})}
-function pvpLoop(t){let dt=Math.min(.04,(t-pvpLast)/1000||0);pvpLast=t;if(pvpRunning){let dx=pvpMove*dt*.55;pvpMe.x=Math.max(.08,Math.min(.92,pvpMe.x+dx));pvpSend({type:'move',x:pvpMe.x});}drawPvp();requestAnimationFrame(pvpLoop)}
+function pvpLoop(t){let dt=Math.min(.04,(t-pvpLast)/1000||0);pvpLast=t;if(pvpRunning){let dx=pvpMove*dt*1.15;pvpMe.x=Math.max(.08,Math.min(.92,pvpMe.x+dx));pvpSend({type:'move',x:pvpMe.x});}drawPvp();requestAnimationFrame(pvpLoop)}
 function drawPvp(){const W=pvpCanvas.width,H=pvpCanvas.height;pctx.fillStyle='#050914';pctx.fillRect(0,0,W,H);pctx.fillStyle='#0b1b30';pctx.fillRect(0,H/2,W,H/2);pctx.strokeStyle='#17324c';pctx.lineWidth=2;pctx.beginPath();pctx.moveTo(0,H/2);pctx.lineTo(W,H/2);pctx.stroke();
  const meX=pvpMe.x*W, enemyX=(pvpEnemy?.x??.5)*W; drawShipPvp(meX,H-120*devicePixelRatio,current?.c||'#fff',false); if(pvpEnemy)drawShipPvp(enemyX,120*devicePixelRatio,pvpEnemy.c||'#ff4050',true);
  for(const s of pvpShots){s.y+=s.v; pctx.fillStyle=s.c;pctx.shadowBlur=18;pctx.shadowColor=s.c;pctx.beginPath();pctx.arc(s.x,s.y,7*devicePixelRatio,0,7);pctx.fill();pctx.shadowBlur=0} pvpShots=pvpShots.filter(s=>s.y>-20&&s.y<H+20);
