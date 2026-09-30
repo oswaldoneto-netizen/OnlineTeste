@@ -1,19 +1,16 @@
-RNG Pedras Online - versão corrigida
+# RNG Pedras Online — 2X Sorte + anúncios
 
-Arquivos:
-- index.html
-- server.js
-- package.json
-- players.json
+O botão **📺 2X SORTE** foi restaurado ao lado do botão ROLAR.
 
-Recursos restaurados:
-- Leaderboard TOP 5 persistente
-- Nick, nível, XP e vitórias salvos
-- Atualização do leaderboard a cada 5 segundos
-- PvP online via WebSocket /ws
-- Tiro normal do modo Pedra sem intervalo artificial
-- Tiro PvP com intervalo de 2 segundos
-- Rajada PvP de 5 tiros com cooldown de 10 segundos
-- Escudo PvP com 3 bloqueios e cooldown de 15 segundos
-- Tiros do adversário aparecem na tela
-- Apenas um index.html no ZIP
+## Importante sobre anúncios premiados
+O código já contém a integração-base para **Google Publisher Tag / Google Ad Manager rewarded ads**. Um ID de publicação do AdSense (`ca-pub-...`) sozinho não é um ID de bloco de anúncio premiado.
+
+No `index.html`, troque:
+
+`/1234567/SEU_BLOCO_REWARDED`
+
+pelo caminho real do seu **ad unit rewarded** do Google Ad Manager.
+
+Quando o evento `rewardedSlotGranted` ocorrer, o jogador recebe 15 minutos de **2X sorte** e as chances de Lendário, Mítico e Secreto são multiplicadas por 2.
+
+Não use um bloco comum do AdSense para dar recompensa por visualização/clique. O inventário premiado precisa ser configurado como rewarded e seguir as políticas do Google.

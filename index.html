@@ -13,7 +13,7 @@
 .header{text-align:center;margin-bottom:20px}.header h1{font-size:clamp(32px,9vw,52px);margin:0;font-weight:1000;letter-spacing:-1px}.header p{margin:8px 0 0;color:#9eacc0;font-size:15px;line-height:1.4}
 .playerCard,.mainCard{border:1px solid #283650;background:#0b1225e8;border-radius:24px;box-shadow:0 18px 60px #0008}.playerCard{padding:16px 18px;margin-bottom:14px}.playerRow{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center}.playerRow label{font-size:17px;font-weight:800}.playerInput{width:100%;background:#060b19;border:1px solid #32415c;color:#fff;border-radius:11px;padding:11px 13px;font-weight:700;font-size:16px}.stats{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;margin-top:13px;align-items:center}.stat{font-size:16px;font-weight:900}.gold{color:#ffd22e}.blue{color:#42a9ff}.muted{color:#8e9bae;font-size:12px;font-weight:700}
 .mainCard{padding:14px 16px 18px}.resultBox{height:285px;border:1px solid #26334b;border-radius:20px;background:radial-gradient(circle at 50% 50%,#121b32,#060b18 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}.resultBox:after{content:"";position:absolute;top:0;bottom:0;width:3px;background:linear-gradient(transparent,#ffffff44,transparent);box-shadow:0 0 20px #ffffff55}.resultName{position:relative;z-index:1;font-size:clamp(42px,11vw,72px);font-weight:1000;text-shadow:0 0 25px currentColor}.resultRarity{position:relative;z-index:1;margin-top:8px;font-size:16px;font-weight:900;letter-spacing:2px}.resultTitle{text-align:center;margin:28px 0 18px}.resultTitle small{display:block;color:#66758d;font-size:12px;font-weight:1000;letter-spacing:4px}.resultTitle b{display:block;margin-top:6px;font-size:28px}
-.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:15px;padding:17px 10px;font-weight:1000;font-size:17px;cursor:pointer;box-shadow:0 8px 24px #0008}.btn.roll{background:linear-gradient(90deg,#8b34f7,#286cff);color:#fff}.btn.play{background:linear-gradient(90deg,#a12d3a,#70202a);color:#b9aab0}.btn.play.enabled{color:#fff;cursor:pointer}.btn.pvp{background:linear-gradient(90deg,#e12d70,#7a24ff);color:#fff}.pvpScreen{display:none;position:fixed;inset:0;background:#040712;z-index:40}.pvpHud{position:fixed;top:10px;left:10px;right:10px;z-index:5;display:flex;justify-content:space-between;gap:8px}.pvpInfo{background:#07101ddd;border:1px solid #314660;border-radius:12px;padding:8px 12px;font-weight:900}.pvpArena{width:100%;height:100%;display:block;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.pvpMenu{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#040712dd;z-index:10}.pvpCard{width:min(92vw,460px);background:#0b1225;border:1px solid #334861;border-radius:22px;padding:22px;text-align:center;box-shadow:0 25px 90px #000}.pvpCard h2{margin:0 0 8px}.pvpCard p{color:#9fb0c2}.pvpBtns{display:grid;gap:10px}.pvpBtns button{border:0;border-radius:13px;padding:14px;font-weight:1000;cursor:pointer}.pvpStart{background:linear-gradient(90deg,#e12d70,#7a24ff);color:#fff}.pvpBack{background:#26354d;color:#fff}.pvpStatus{min-height:22px;color:#9fb0c2;margin:12px 0}.pvpCountdown{display:none;position:fixed;inset:0;z-index:12;align-items:center;justify-content:center;background:#02040bd9;pointer-events:none}.pvpCountdown b{font-size:clamp(90px,25vw,190px);font-weight:1000;color:#fff;text-shadow:0 0 35px #7a24ff,0 0 80px #e12d70;animation:pvpCountPop .8s ease-out}@keyframes pvpCountPop{0%{transform:scale(1.5);opacity:0}35%{transform:scale(1);opacity:1}100%{transform:scale(.92);opacity:1}}.pvpControls{display:none}.pvpControls button{border:0;border-radius:50%;width:72px;height:72px;background:#16263b;color:#fff;font-weight:1000;font-size:24px}.pvpFire{background:#d9364f!important;width:88px!important;height:88px!important}.pvpClose{position:fixed;top:10px;right:10px;z-index:8;border:1px solid #5b3140;background:#2a1018;color:#fff;border-radius:11px;padding:10px 14px;font-weight:1000}.btn:disabled{cursor:not-allowed;filter:grayscale(.25)}.btn:active,.deviceBtn:active{transform:scale(.98)}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:15px;padding:17px 10px;font-weight:1000;font-size:17px;cursor:pointer;box-shadow:0 8px 24px #0008}.btn.roll{background:linear-gradient(90deg,#8b34f7,#286cff);color:#fff}.btn.reward{background:linear-gradient(90deg,#ff9b20,#ff263c);color:#fff;position:relative}.luckStatus{grid-column:1/-1;text-align:center;font-size:12px;font-weight:900;color:#ffd166;min-height:16px}.btn.play{background:linear-gradient(90deg,#a12d3a,#70202a);color:#b9aab0}.btn.play.enabled{color:#fff;cursor:pointer}.btn.pvp{background:linear-gradient(90deg,#e12d70,#7a24ff);color:#fff}.pvpScreen{display:none;position:fixed;inset:0;background:#040712;z-index:40}.pvpHud{position:fixed;top:10px;left:10px;right:10px;z-index:5;display:flex;justify-content:space-between;gap:8px}.pvpInfo{background:#07101ddd;border:1px solid #314660;border-radius:12px;padding:8px 12px;font-weight:900}.pvpArena{width:100%;height:100%;display:block;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.pvpMenu{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#040712dd;z-index:10}.pvpCard{width:min(92vw,460px);background:#0b1225;border:1px solid #334861;border-radius:22px;padding:22px;text-align:center;box-shadow:0 25px 90px #000}.pvpCard h2{margin:0 0 8px}.pvpCard p{color:#9fb0c2}.pvpBtns{display:grid;gap:10px}.pvpBtns button{border:0;border-radius:13px;padding:14px;font-weight:1000;cursor:pointer}.pvpStart{background:linear-gradient(90deg,#e12d70,#7a24ff);color:#fff}.pvpBack{background:#26354d;color:#fff}.pvpStatus{min-height:22px;color:#9fb0c2;margin:12px 0}.pvpCountdown{display:none;position:fixed;inset:0;z-index:12;align-items:center;justify-content:center;background:#02040bd9;pointer-events:none}.pvpCountdown b{font-size:clamp(90px,25vw,190px);font-weight:1000;color:#fff;text-shadow:0 0 35px #7a24ff,0 0 80px #e12d70;animation:pvpCountPop .8s ease-out}@keyframes pvpCountPop{0%{transform:scale(1.5);opacity:0}35%{transform:scale(1);opacity:1}100%{transform:scale(.92);opacity:1}}.pvpControls{display:none}.pvpControls button{border:0;border-radius:50%;width:72px;height:72px;background:#16263b;color:#fff;font-weight:1000;font-size:24px}.pvpFire{background:#d9364f!important;width:88px!important;height:88px!important}.pvpClose{position:fixed;top:10px;right:10px;z-index:8;border:1px solid #5b3140;background:#2a1018;color:#fff;border-radius:11px;padding:10px 14px;font-weight:1000}.btn:disabled{cursor:not-allowed;filter:grayscale(.25)}.btn:active,.deviceBtn:active{transform:scale(.98)}
 .rarityGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.rarity{min-height:68px;border-radius:16px;background:#070d1e;border:1px solid #18243a;display:flex;flex-direction:column;justify-content:center;align-items:center}.rarity span{font-size:11px;color:#aab6c7}.rarity b{font-size:20px;margin-top:4px}.c-white b{color:#fff}.c-blue b{color:#4d9cff}.c-purple b{color:#b35cff}.c-orange b{color:#ff9130}.c-red b{color:#ff4050}.c-rgb b{background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,violet,red);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rainbow 1.2s linear infinite}@keyframes rainbow{to{background-position:300% 0}}
 .rainbowText{background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,violet,red);background-size:400% 100%;-webkit-background-clip:text;background-clip:text;color:transparent!important;animation:rainbow 1s linear infinite;text-shadow:none!important}
 .bottomLinks{display:grid;grid-template-columns:1fr 1fr;margin-top:14px;color:#fff;font-weight:800;font-size:14px}.bottomLinks span{text-align:center}
@@ -27,6 +27,7 @@ canvas{width:100%;height:100%;display:block}.hintPanel{position:fixed;left:50%;b
 
 .pvpSkills{position:fixed;right:18px;bottom:22px;z-index:8;display:flex;gap:8px}.pvpSkills button{border:1px solid #ffffff44;border-radius:14px;padding:11px 13px;color:#fff;font-weight:1000;min-width:118px;box-shadow:0 8px 24px #0008}.pvpSkillBtn{background:linear-gradient(90deg,#7a24ff,#e12d70)}.pvpShieldBtn{background:linear-gradient(90deg,#1687ff,#16c8ff)}.pvpSkills button:disabled{opacity:.45}.pvpSkillStatus{position:fixed;right:18px;bottom:86px;z-index:8;background:#07101de8;border:1px solid #304863;border-radius:12px;padding:7px 10px;font-size:11px;font-weight:900;color:#b8c8d8}@media(max-width:700px){.pvpSkills{right:10px;bottom:18px;flex-direction:column}.pvpSkillStatus{right:10px;bottom:160px;max-width:220px}}
 </style>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -40,7 +41,7 @@ canvas{width:100%;height:100%;display:block}.hintPanel{position:fixed;left:50%;b
     <div class="mainCard">
       <div class="resultBox"><div id="resultName" class="resultName">???</div><div id="resultRarity" class="resultRarity"></div></div>
       <div class="resultTitle"><small>RESULTADO</small><b id="resultText">Pronto para rolar</b></div>
-      <div class="buttons"><button class="btn roll" id="menuRoll">🎲 ROLAR</button><button class="btn play" id="playBtn">🚀 JOGAR SHOOTER</button><button class="btn pvp" id="pvpBtn">⚔️ PVP ONLINE</button></div><div class="rollHelp">A primeira rolagem é grátis. Depois, cada roll custa <b>100 pontos</b>. Derrote pedras no shooter para ganhar pontos.</div>
+      <div class="buttons"><button class="btn roll" id="menuRoll">🎲 ROLAR</button><button class="btn reward" id="rewardBtn">📺 2X SORTE</button><button class="btn play" id="playBtn">🚀 JOGAR SHOOTER</button><button class="btn pvp" id="pvpBtn">⚔️ PVP ONLINE</button><div id="luckStatus" class="luckStatus"></div></div><div class="rollHelp">A primeira rolagem é grátis. Depois, cada roll custa <b>100 pontos</b>. Derrote pedras no shooter para ganhar pontos.</div>
       <div class="deviceTitle">ESCOLHA O CONTROLE</div>
       <div class="deviceButtons"><button class="deviceBtn active" id="pcMode">🖥️ COMPUTADOR</button><button class="deviceBtn" id="mobileMode">📱 CELULAR</button></div>
       <div class="rarityGrid">
@@ -108,9 +109,36 @@ function esc(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;',
 const menu=document.getElementById('menu'), panel=document.getElementById('rngPanel');
 const rn=document.getElementById('rollingName'), rr=document.getElementById('rollingRarity'), bar=document.getElementById('bar');
 
+const LUCK_KEY='rng_pedras_luck_boost_v1';
+let luckBoostUntil=Number(localStorage.getItem(LUCK_KEY)||0);
+function luckActive(){return luckBoostUntil>Date.now();}
+function updateLuckUI(){
+ const el=document.getElementById('luckStatus'), btn=document.getElementById('rewardBtn');
+ if(!el||!btn)return;
+ if(luckActive()){
+   const sec=Math.max(0,Math.ceil((luckBoostUntil-Date.now())/1000));
+   const m=Math.floor(sec/60), ss=String(sec%60).padStart(2,'0');
+   el.textContent=`🍀 2X SORTE ATIVO • ${m}:${ss}`;
+   btn.textContent='🍀 2X SORTE ATIVO'; btn.disabled=true;
+ }else{
+   el.textContent=''; btn.disabled=false; btn.textContent='📺 2X SORTE';
+ }
+}
+function activateLuckBoost(minutes=15){
+ luckBoostUntil=Math.max(luckBoostUntil,Date.now()+minutes*60*1000);
+ localStorage.setItem(LUCK_KEY,String(luckBoostUntil));
+ updateLuckUI();
+}
 function pick(){
- let x=Math.random()*96.5,s=0;
- for(const r of R){s+=r.p;if(x<s)return r}
+ const boost=luckActive();
+ const weights=R.map(r=>{
+   let w=r.p;
+   if(boost && ['lendario','mitico','secreto'].includes(r.k)) w*=2;
+   return w;
+ });
+ const total=weights.reduce((a,b)=>a+b,0);
+ let x=Math.random()*total;
+ for(let i=0;i<R.length;i++){x-=weights[i];if(x<0)return R[i];}
  return R[0];
 }
 function colorFor(r){return r.c==='rgb'?`hsl(${Date.now()/4%360} 100% 60%)`:r.c}
@@ -257,6 +285,47 @@ function startRoll(){
   // Start immediately so there is never a blank/frozen first frame.
   tick();
 }
+// Rewarded ads: use Google Publisher Tag / Google Ad Manager rewarded inventory.
+// Replace this with your real rewarded ad unit path after creating it in Google Ad Manager.
+const REWARDED_AD_UNIT='/1234567/SEU_BLOCO_REWARDED';
+let rewardedSlot=null;
+let rewardedReady=false;
+function loadRewardedAd(){
+  if(REWARDED_AD_UNIT.includes('SEU_BLOCO_REWARDED')) return;
+  if(!window.googletag || !googletag.defineOutOfPageSlot) return;
+  googletag.cmd=googletag.cmd||[];
+  googletag.cmd.push(function(){
+    rewardedSlot=googletag.defineOutOfPageSlot(REWARDED_AD_UNIT,googletag.enums.OutOfPageFormat.REWARDED);
+    if(!rewardedSlot) return;
+    rewardedSlot.addService(googletag.pubads());
+    googletag.pubads().addEventListener('rewardedSlotReady',function(e){
+      if(e.slot===rewardedSlot){rewardedReady=true;}
+    });
+    googletag.pubads().addEventListener('rewardedSlotGranted',function(e){
+      if(e.slot===rewardedSlot){activateLuckBoost(15);}
+    });
+    googletag.pubads().addEventListener('rewardedSlotClosed',function(e){
+      if(e.slot===rewardedSlot){rewardedReady=false; setTimeout(loadRewardedAd,500);}
+    });
+    googletag.enableServices();
+    googletag.display(rewardedSlot);
+  });
+}
+function requestRewardedAd(){
+  if(REWARDED_AD_UNIT.includes('SEU_BLOCO_REWARDED')){
+    alert('O botão já está pronto. Para o anúncio real, configure um bloco de anúncio premiado no Google Ad Manager. Não use um anúncio comum do AdSense para recompensas.');
+    return;
+  }
+  if(rewardedReady && rewardedSlot){
+    googletag.cmd.push(function(){rewardedSlot.makeRewardedVisible();});
+  }else{
+    alert('Anúncio premiado ainda não está disponível. Tente novamente em alguns segundos.');
+  }
+}
+document.getElementById('rewardBtn').onclick=requestRewardedAd;
+updateLuckUI();
+setInterval(updateLuckUI,1000);
+loadRewardedAd();
 document.getElementById('menuRoll').onclick=startRoll;
 document.getElementById('again').onclick=startRoll;
 
