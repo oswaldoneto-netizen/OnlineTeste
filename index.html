@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 <title>RNG Pedras</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Arial,Helvetica,sans-serif;background:#070b19;color:#fff}body{overflow:hidden;touch-action:none}button{font:inherit}
+*{box-sizing:border-box}html,body{overflow-y:auto;min-height:100vh;margin:0;width:100%;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#070b19;color:#fff}body{overflow-y:auto;min-height:100vh;overflow:hidden;touch-action:none}button{font:inherit}
 .screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-#menu{overflow:auto;align-items:flex-start;padding:34px 0 50px;background:radial-gradient(circle at 35% 18%,#311a5c 0,#15112e 35%,#071020 72%,#050811 100%)}
+#menu{overflow-y:auto;overflow-x:hidden;align-items:flex-start;padding:34px 0 90px;min-height:100dvh;-webkit-overflow-scrolling:touch};background:radial-gradient(circle at 35% 18%,#311a5c 0,#15112e 35%,#071020 72%,#050811 100%)}
 .menuWrap{width:min(92vw,560px);margin:auto}
 .header{text-align:center;margin-bottom:20px}.header h1{font-size:clamp(32px,9vw,52px);margin:0;font-weight:1000;letter-spacing:-1px}.header p{margin:8px 0 0;color:#9eacc0;font-size:15px;line-height:1.4}
 .playerCard,.mainCard{border:1px solid #283650;background:#0b1225e8;border-radius:24px;box-shadow:0 18px 60px #0008}.playerCard{padding:16px 18px;margin-bottom:14px}.playerRow{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center}.playerRow label{font-size:17px;font-weight:800}.playerInput{width:100%;background:#060b19;border:1px solid #32415c;color:#fff;border-radius:11px;padding:11px 13px;font-weight:700;font-size:16px}.stats{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;margin-top:13px;align-items:center}.stat{font-size:16px;font-weight:900}.gold{color:#ffd22e}.blue{color:#42a9ff}.muted{color:#8e9bae;font-size:12px;font-weight:700}
 .mainCard{padding:14px 16px 18px}.resultBox{height:285px;border:1px solid #26334b;border-radius:20px;background:radial-gradient(circle at 50% 50%,#121b32,#060b18 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}.resultBox:after{content:"";position:absolute;top:0;bottom:0;width:3px;background:linear-gradient(transparent,#ffffff44,transparent);box-shadow:0 0 20px #ffffff55}.resultName{position:relative;z-index:1;font-size:clamp(42px,11vw,72px);font-weight:1000;text-shadow:0 0 25px currentColor}.resultRarity{position:relative;z-index:1;margin-top:8px;font-size:16px;font-weight:900;letter-spacing:2px}.resultTitle{text-align:center;margin:28px 0 18px}.resultTitle small{display:block;color:#66758d;font-size:12px;font-weight:1000;letter-spacing:4px}.resultTitle b{display:block;margin-top:6px;font-size:28px}
-.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:15px;padding:17px 10px;font-weight:1000;font-size:17px;cursor:pointer;box-shadow:0 8px 24px #0008}.btn.roll{background:linear-gradient(90deg,#8b34f7,#286cff);color:#fff}.btn.play{background:linear-gradient(90deg,#a12d3a,#70202a);color:#b9aab0}.btn.play.enabled{color:#fff;cursor:pointer}.btn.pvp{background:linear-gradient(90deg,#e12d70,#7a24ff);color:#fff}.pvpScreen{display:none;position:fixed;inset:0;background:#040712;z-index:40}.pvpHud{position:fixed;top:10px;left:10px;right:10px;z-index:5;display:flex;justify-content:space-between;gap:8px}.pvpInfo{background:#07101ddd;border:1px solid #314660;border-radius:12px;padding:8px 12px;font-weight:900}.pvpArena{width:100%;height:100%;display:block;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.pvpMenu{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#040712dd;z-index:10}.pvpCard{width:min(92vw,460px);background:#0b1225;border:1px solid #334861;border-radius:22px;padding:22px;text-align:center;box-shadow:0 25px 90px #000}.pvpCard h2{margin:0 0 8px}.pvpCard p{color:#9fb0c2}.pvpBtns{display:grid;gap:10px}.pvpBtns button{border:0;border-radius:13px;padding:14px;font-weight:1000;cursor:pointer}.pvpStart{background:linear-gradient(90deg,#e12d70,#7a24ff);color:#fff}.pvpBack{background:#26354d;color:#fff}.pvpStatus{min-height:22px;color:#9fb0c2;margin:12px 0}.pvpCountdown{display:none;position:fixed;inset:0;z-index:12;align-items:center;justify-content:center;background:#02040bd9;pointer-events:none}.pvpCountdown b{font-size:clamp(90px,25vw,190px);font-weight:1000;color:#fff;text-shadow:0 0 35px #7a24ff,0 0 80px #e12d70;animation:pvpCountPop .8s ease-out}@keyframes pvpCountPop{0%{transform:scale(1.5);opacity:0}35%{transform:scale(1);opacity:1}100%{transform:scale(.92);opacity:1}}.pvpControls{display:none}.pvpControls button{border:0;border-radius:50%;width:72px;height:72px;background:#16263b;color:#fff;font-weight:1000;font-size:24px}.pvpFire{background:#d9364f!important;width:88px!important;height:88px!important}.pvpClose{position:fixed;top:10px;right:10px;z-index:8;border:1px solid #5b3140;background:#2a1018;color:#fff;border-radius:11px;padding:10px 14px;font-weight:1000}.btn:disabled{cursor:not-allowed;filter:grayscale(.25)}.btn:active,.deviceBtn:active{transform:scale(.98)}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.rewardBtn{background:linear-gradient(90deg,#ffb300,#ff5a36);color:#fff}.luckStatus{margin-top:9px;text-align:center;font-size:12px;font-weight:900;color:#ffd54a;min-height:18px}.adNotice{font-size:10px;color:#7f8da2;text-align:center;margin-top:4px}.btn{border:0;border-radius:15px;padding:17px 10px;font-weight:1000;font-size:17px;cursor:pointer;box-shadow:0 8px 24px #0008}.btn.roll{background:linear-gradient(90deg,#8b34f7,#286cff);color:#fff}.btn.play{background:linear-gradient(90deg,#a12d3a,#70202a);color:#b9aab0}.btn.play.enabled{color:#fff;cursor:pointer}.btn.pvp{background:linear-gradient(90deg,#e12d70,#7a24ff);color:#fff}.pvpScreen{display:none;position:fixed;inset:0;background:#040712;z-index:40}.pvpHud{position:fixed;top:10px;left:10px;right:10px;z-index:5;display:flex;justify-content:space-between;gap:8px}.pvpInfo{background:#07101ddd;border:1px solid #314660;border-radius:12px;padding:8px 12px;font-weight:900}.pvpArena{width:100%;height:100%;display:block;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.pvpMenu{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#040712dd;z-index:10}.pvpCard{width:min(92vw,460px);background:#0b1225;border:1px solid #334861;border-radius:22px;padding:22px;text-align:center;box-shadow:0 25px 90px #000}.pvpCard h2{margin:0 0 8px}.pvpCard p{color:#9fb0c2}.pvpBtns{display:grid;gap:10px}.pvpBtns button{border:0;border-radius:13px;padding:14px;font-weight:1000;cursor:pointer}.pvpStart{background:linear-gradient(90deg,#e12d70,#7a24ff);color:#fff}.pvpBack{background:#26354d;color:#fff}.pvpStatus{min-height:22px;color:#9fb0c2;margin:12px 0}.pvpCountdown{display:none;position:fixed;inset:0;z-index:12;align-items:center;justify-content:center;background:#02040bd9;pointer-events:none}.pvpCountdown b{font-size:clamp(90px,25vw,190px);font-weight:1000;color:#fff;text-shadow:0 0 35px #7a24ff,0 0 80px #e12d70;animation:pvpCountPop .8s ease-out}@keyframes pvpCountPop{0%{transform:scale(1.5);opacity:0}35%{transform:scale(1);opacity:1}100%{transform:scale(.92);opacity:1}}.pvpControls{display:none}.pvpControls button{border:0;border-radius:50%;width:72px;height:72px;background:#16263b;color:#fff;font-weight:1000;font-size:24px}.pvpFire{background:#d9364f!important;width:88px!important;height:88px!important}.pvpClose{position:fixed;top:10px;right:10px;z-index:8;border:1px solid #5b3140;background:#2a1018;color:#fff;border-radius:11px;padding:10px 14px;font-weight:1000}.btn:disabled{cursor:not-allowed;filter:grayscale(.25)}.btn:active,.deviceBtn:active{transform:scale(.98)}
 .rarityGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.rarity{min-height:68px;border-radius:16px;background:#070d1e;border:1px solid #18243a;display:flex;flex-direction:column;justify-content:center;align-items:center}.rarity span{font-size:11px;color:#aab6c7}.rarity b{font-size:20px;margin-top:4px}.c-white b{color:#fff}.c-blue b{color:#4d9cff}.c-purple b{color:#b35cff}.c-orange b{color:#ff9130}.c-red b{color:#ff4050}.c-rgb b{background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,violet,red);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rainbow 1.2s linear infinite}@keyframes rainbow{to{background-position:300% 0}}
 .rainbowText{background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,violet,red);background-size:400% 100%;-webkit-background-clip:text;background-clip:text;color:transparent!important;animation:rainbow 1s linear infinite;text-shadow:none!important}
 .bottomLinks{display:grid;grid-template-columns:1fr 1fr;margin-top:14px;color:#fff;font-weight:800;font-size:14px}.bottomLinks span{text-align:center}
@@ -39,7 +40,7 @@ canvas{width:100%;height:100%;display:block}.hintPanel{position:fixed;left:50%;b
     <div class="mainCard">
       <div class="resultBox"><div id="resultName" class="resultName">???</div><div id="resultRarity" class="resultRarity"></div></div>
       <div class="resultTitle"><small>RESULTADO</small><b id="resultText">Pronto para rolar</b></div>
-      <div class="buttons"><button class="btn roll" id="menuRoll">🎲 ROLAR</button><button class="btn play" id="playBtn">🚀 JOGAR SHOOTER</button><button class="btn pvp" id="pvpBtn">⚔️ PVP ONLINE</button></div><div class="rollHelp">A primeira rolagem é grátis. Depois, cada roll custa <b>100 pontos</b>. Derrote pedras no shooter para ganhar pontos.</div>
+      <div class="buttons"><button class="btn roll" id="menuRoll">🎲 ROLAR</button><button class="btn rewardBtn" id="rewardAdBtn">📺 2X SORTE</button><button class="btn play" id="playBtn">🚀 JOGAR SHOOTER</button><button class="btn pvp" id="pvpBtn">⚔️ PVP ONLINE</button></div><div id="luckStatus" class="luckStatus"></div><div class="adNotice">Assista voluntariamente ao anúncio para receber a recompensa.</div><div class="rollHelp">A primeira rolagem é grátis. Depois, cada roll custa <b>100 pontos</b>. Derrote pedras no shooter para ganhar pontos.</div>
       <div class="deviceTitle">ESCOLHA O CONTROLE</div>
       <div class="deviceButtons"><button class="deviceBtn active" id="pcMode">🖥️ COMPUTADOR</button><button class="deviceBtn" id="mobileMode">📱 CELULAR</button></div>
       <div class="rarityGrid">
@@ -48,7 +49,7 @@ canvas{width:100%;height:100%;display:block}.hintPanel{position:fixed;left:50%;b
       <div class="bottomLinks"><span>📜 Histórico</span><span>🏆 Leaderboard Online</span></div>
 <div id="leaderboard" style="margin-top:16px;border:1px solid #283650;border-radius:18px;background:#060b19;padding:14px">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><b>🏆 TOP 10</b><span id="onlineCount" style="color:#55e58a;font-weight:900">🟢 0 online</span></div>
-  <div id="leaderRows" style="display:grid;gap:7px"><div style="color:#7f8da2;text-align:center">Carregando...</div></div>
+  <div id="leaderRows" style="display:grid;gap:7px;max-height:none;overflow:visible;padding-right:3px"><div style="color:#7f8da2;text-align:center">Carregando...</div></div>
 </div>
     </div>
   </div>
@@ -92,26 +93,37 @@ const R=[
  {k:'secreto',n:'SECRETO',c:'rgb',p:.5,d:90,h:360,names:['POLO']}
 ];
 let current=null, currentName='???', rolling=false, coins=100, hasCharacter=false, rollTimer=null, rollToken=0;
+let luckBoostUntil=0;
+const LUCK_DURATION_MS=15*60*1000;
 const PROFILE_KEY='rng_pedras_profile_v2';
-let profile={nick:'',level:1,xp:0,wins:0,rank:'Sem Rank'};
+let profile={playerId:'',nick:'',previousNick:'',level:1,xp:0,wins:0,rank:'Sem Rank'};
 function rankForWins(w){w=+w||0;if(w>=30)return 'Champion';if(w>=25)return 'Diamante';if(w>=20)return 'Platina';if(w>=15)return 'Ouro';if(w>=10)return 'Prata';if(w>=5)return 'Bronze';return 'Sem Rank'}
 function rankColor(r){return ({'Sem Rank':'#fff','Bronze':'#cd7f32','Prata':'#c0c0c0','Ouro':'#ffd700','Platina':'#7ee6e8','Diamante':'#55b9ff','Champion':'#ff4d9d'})[r]||'#fff'}
-function loadProfile(){try{const p=JSON.parse(localStorage.getItem(PROFILE_KEY)||'null');if(p){profile.nick=String(p.nick||'').slice(0,16);profile.level=Math.max(1,+p.level||1);profile.xp=Math.max(0,+p.xp||0);profile.wins=Math.max(0,+p.wins||0);profile.rank=String(p.rank||rankForWins(profile.wins));}}catch(e){} const el=document.getElementById('playerName'); if(profile.nick) el.value=profile.nick; updateProfileUI(); syncPlayer();}
-function saveProfile(){profile.nick=(document.getElementById('playerName').value||'').trim().slice(0,16)||'Player1'; try{localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));}catch(e){} updateProfileUI(); syncPlayer();}
+function loadProfile(){try{const p=JSON.parse(localStorage.getItem(PROFILE_KEY)||'null');if(p){profile.playerId=String(p.playerId||''); profile.nick=String(p.nick||'').slice(0,16); profile.previousNick=String(p.previousNick||profile.nick||'').slice(0,16);profile.level=Math.max(1,+p.level||1);profile.xp=Math.max(0,+p.xp||0);profile.wins=Math.max(0,+p.wins||0);profile.rank=String(p.rank||rankForWins(profile.wins));}}catch(e){} const el=document.getElementById('playerName'); if(!profile.playerId){const m=document.cookie.match(/(?:^|; )rngPlayerId=([^;]+)/); profile.playerId=m?decodeURIComponent(m[1]):'p_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10); document.cookie='rngPlayerId='+encodeURIComponent(profile.playerId)+'; Max-Age=31536000; Path=/; SameSite=Lax';} if(profile.nick) el.value=profile.nick; updateProfileUI(); syncPlayer();}
+function saveProfile(){const old=profile.nick; profile.nick=(document.getElementById('playerName').value||'').trim().slice(0,16)||'Player1'; if(!profile.playerId){profile.playerId='p_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10); document.cookie='rngPlayerId='+encodeURIComponent(profile.playerId)+'; Max-Age=31536000; Path=/; SameSite=Lax';} if(old && old!==profile.nick) profile.previousNick=old; try{localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));}catch(e){} updateProfileUI(); syncPlayer();}
 function updateProfileUI(){document.getElementById('menuLevel').textContent=profile.level;document.getElementById('menuXp').textContent=profile.xp;document.getElementById('hudName').textContent=profile.nick||'Player1';}
 function addXP(n){profile.xp+=n;while(profile.xp>=100){profile.xp-=100;profile.level++;} saveProfile();}
-async function syncPlayer(){if(!profile.nick)return;try{await fetch('/api/player',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nick:profile.nick,level:profile.level,xp:profile.xp,wins:profile.wins})});}catch(e){}}
-async function loadLeaderboard(){try{const r=await fetch('/api/leaderboard');if(!r.ok)return;const d=await r.json();document.getElementById('onlineCount').textContent='🟢 '+(d.online||0)+' online';document.getElementById('leaderRows').innerHTML=(d.players||[]).map((p,i)=>{const r=p.rank||rankForWins(p.wins||0);const col=p.rankColor||rankColor(r);return `<div style="display:grid;grid-template-columns:32px 1fr auto;gap:8px;align-items:center;background:#0b1225;border-radius:10px;padding:8px 10px"><b>${i+1}º</b><span style="font-weight:900;color:${col};text-shadow:0 0 10px ${col}44">${esc(p.nick)} <small style="opacity:.9">• ${r}</small></span><span style="color:#42a9ff;font-weight:900">Nv.${p.level} • ${p.xp}/100 XP</span></div>`}).join('')||'<div style="color:#7f8da2;text-align:center">Nenhum jogador salvo</div>';}catch(e){}}
+async function syncPlayer(){if(!profile.nick)return;try{const r=await fetch('/api/player',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({playerId:profile.playerId,nick:profile.nick,previousNick:profile.previousNick,level:profile.level,xp:profile.xp,wins:profile.wins})});const d=await r.json();if(d.playerId&&d.playerId!==profile.playerId){profile.playerId=d.playerId;document.cookie='rngPlayerId='+encodeURIComponent(profile.playerId)+'; Max-Age=31536000; Path=/; SameSite=Lax';try{localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));}catch(e){}}}catch(e){}}
+async function loadLeaderboard(){try{const r=await fetch('/api/leaderboard',{cache:'no-store'});if(!r.ok)return;const d=await r.json();document.getElementById('onlineCount').textContent='🟢 '+(d.online||0)+' online';const rows=(d.players||[]).slice(0,10);document.getElementById('leaderRows').innerHTML=rows.map((p,i)=>{const r=p.rank||rankForWins(p.wins||0);const col=p.rankColor||rankColor(r);return `<div style="display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:8px;align-items:center;background:#0b1225;border-radius:10px;padding:10px;min-height:44px"><b>${i+1}º</b><span style="font-weight:900;color:${col};text-shadow:0 0 10px ${col}44;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(p.nick)} <small style="opacity:.9">• ${r}</small></span><span style="color:#42a9ff;font-weight:900;white-space:nowrap">Nv.${p.level} • ${p.xp}/100 XP</span></div>`}).join('')||'<div style="color:#7f8da2;text-align:center">Nenhum jogador salvo</div>';}catch(e){}}
 function esc(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[c]));}
 
 const menu=document.getElementById('menu'), panel=document.getElementById('rngPanel');
 const rn=document.getElementById('rollingName'), rr=document.getElementById('rollingRarity'), bar=document.getElementById('bar');
 
 function pick(){
- let x=Math.random()*96.5,s=0;
- for(const r of R){s+=r.p;if(x<s)return r}
- return R[0];
+ const boosted=Date.now()<luckBoostUntil;
+ const total=R.reduce((sum,r)=>sum + (boosted && ['lendario','mitico','secreto'].includes(r.k) ? r.p*2 : r.p),0);
+ let x=Math.random()*total,s=0;
+ for(const r of R){s += boosted && ['lendario','mitico','secreto'].includes(r.k) ? r.p*2 : r.p;if(x<s)return r}
+ return R[R.length-1]||R[0];
 }
+function updateLuckUI(){
+ const el=document.getElementById('luckStatus'); if(!el)return;
+ const left=Math.max(0,luckBoostUntil-Date.now());
+ if(left>0){const m=Math.floor(left/60000),sec=Math.floor(left/1000)%60;el.textContent=`🍀 2X SORTE ATIVO • Lendário/Mítico/Secreto ↑ • ${m}:${String(sec).padStart(2,'0')}`;}
+ else {el.textContent='';}
+}
+setInterval(updateLuckUI,1000);
 function colorFor(r){return r.c==='rgb'?`hsl(${Date.now()/4%360} 100% 60%)`:r.c}
 function showResult(r,name){
  current=r;currentName=name;hasCharacter=true;
@@ -259,6 +271,56 @@ function startRoll(){
 document.getElementById('menuRoll').onclick=startRoll;
 document.getElementById('again').onclick=startRoll;
 
+// Google Publisher Tag rewarded ad. Replace this path with the rewarded ad unit
+// from your Google Ad Manager account before using production ads.
+const REWARDED_AD_UNIT='/1234567/example';
+let rewardedSlot=null, rewardedReadyEvent=null, rewardGranted=false;
+window.googletag=window.googletag||{cmd:[]};
+function setupRewardedAd(){
+  googletag.cmd.push(function(){
+    if(rewardedSlot)return;
+    const slot=googletag.defineOutOfPageSlot(REWARDED_AD_UNIT,googletag.enums.OutOfPageFormat.REWARDED);
+    if(!slot){document.getElementById('rewardAdBtn').disabled=true;document.getElementById('rewardAdBtn').textContent='📺 ANÚNCIO INDISPONÍVEL';return;}
+    rewardedSlot=slot; slot.addService(googletag.pubads());
+    googletag.pubads().addEventListener('rewardedSlotReady',function(evt){
+      if(evt.slot!==rewardedSlot)return;
+      rewardedReadyEvent=evt;
+      const b=document.getElementById('rewardAdBtn');
+      b.disabled=false; b.textContent='📺 VER ANÚNCIO • 2X SORTE';
+    });
+    googletag.pubads().addEventListener('rewardedSlotGranted',function(evt){
+      if(evt.slot!==rewardedSlot)return;
+      rewardGranted=true;
+      luckBoostUntil=Date.now()+LUCK_DURATION_MS;
+      updateLuckUI();
+      const b=document.getElementById('rewardAdBtn');
+      b.textContent='🍀 2X SORTE ATIVO'; b.disabled=true;
+    });
+    googletag.pubads().addEventListener('rewardedSlotClosed',function(evt){
+      if(evt.slot!==rewardedSlot)return;
+      const wasRewarded=rewardGranted;
+      rewardGranted=false; rewardedReadyEvent=null;
+      try{googletag.destroySlots([rewardedSlot]);}catch(e){}
+      rewardedSlot=null;
+      const b=document.getElementById('rewardAdBtn');
+      b.disabled=false; b.textContent=wasRewarded?'🍀 2X SORTE ATIVO':'📺 TENTAR NOVAMENTE';
+      if(!wasRewarded)setTimeout(setupRewardedAd,250);
+    });
+    googletag.display(rewardedSlot);
+  });
+}
+googletag.cmd.push(function(){googletag.enableServices();});
+setupRewardedAd();
+document.getElementById('rewardAdBtn').onclick=function(){
+  const b=this;
+  if(luckBoostUntil>Date.now()){updateLuckUI();return;}
+  if(!rewardedReadyEvent){b.textContent='📺 CARREGANDO ANÚNCIO...';b.disabled=true;setupRewardedAd();return;}
+  const evt=rewardedReadyEvent;
+  rewardedReadyEvent=null;
+  b.disabled=true; b.textContent='📺 ASSISTINDO...';
+  evt.makeRewardedVisible();
+};
+
 document.getElementById('playerName').addEventListener('input',e=>{document.getElementById('hudName').textContent=e.target.value||'Player1';});
 document.getElementById('playerName').addEventListener('change',saveProfile);
 document.getElementById('playerName').addEventListener('blur',saveProfile);
@@ -389,7 +451,7 @@ function draw(){
  requestAnimationFrame(loop)
 }
 function loop(){update();draw()}
-loadProfile(); loadLeaderboard(); setInterval(()=>{saveProfile();loadLeaderboard()},5000);
+loadProfile(); loadLeaderboard(); setInterval(()=>{saveProfile();fetch('/api/heartbeat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({playerId:profile.playerId,nick:profile.nick,previousNick:profile.previousNick})}).catch(()=>{});loadLeaderboard()},5000);
 loop();
 
 // ===== PVP ONLINE =====
@@ -402,7 +464,7 @@ function pvpSend(o){if(pvpWS&&pvpWS.readyState===1)pvpWS.send(JSON.stringify(o))
 function pvpStopTimers(){if(pvpCountdownTimer){clearInterval(pvpCountdownTimer);pvpCountdownTimer=null}if(pvpAutoFireTimer){clearInterval(pvpAutoFireTimer);pvpAutoFireTimer=null}const cd=document.getElementById('pvpCountdown');if(cd)cd.style.display='none'}
 function pvpReset(){pvpLastShot=0;pvpSkillReadyAt=0;pvpShieldReadyAt=0;pvpShieldBlocks=0;pvpMe.shield=0;updatePvpUI()}
 function pvpStartCountdown(){pvpStopTimers();pvpRunning=false;pvpLastShot=0;const cd=document.getElementById('pvpCountdown'),num=document.getElementById('pvpCountdownNumber');cd.style.display='flex';let n=5;num.textContent=n;pvpSetStatus('🔥 PARTIDA COMEÇA EM '+n);initAudio();snd(440,.12,'sine',.035,0);pvpCountdownTimer=setInterval(()=>{n--;if(n>0){num.textContent=n;pvpSetStatus('🔥 PARTIDA COMEÇA EM '+n);snd(440+n*35,.10,'sine',.035,0)}else{clearInterval(pvpCountdownTimer);pvpCountdownTimer=null;num.textContent='⚔️';pvpSetStatus('🚀 VALENDO!');pvpRunning=true;updatePvpUI();setTimeout(()=>{cd.style.display='none'},500);pvpFire();pvpStartAutoFire()}},1000)}
-function pvpConnect(){if(pvpWS&&pvpWS.readyState<=1)return;const proto=location.protocol==='https:'?'wss':'ws';pvpWS=new WebSocket(`${proto}://${location.host}/ws`);pvpWS.onopen=()=>{pvpSend({type:'join',nick:profile.nick||'Player1',level:profile.level||1,rarity:current?.k||'comum',wins:profile.wins});pvpSetStatus('Procurando outro jogador...')};pvpWS.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch{return}
+function pvpConnect(){if(pvpWS&&pvpWS.readyState<=1)return;const proto=location.protocol==='https:'?'wss':'ws';pvpWS=new WebSocket(`${proto}://${location.host}/ws`);pvpWS.onopen=()=>{pvpSend({type:'join',playerId:profile.playerId,nick:profile.nick||'Player1',level:profile.level||1,rarity:current?.k||'comum',wins:profile.wins,previousNick:profile.previousNick});pvpSetStatus('Procurando outro jogador...')};pvpWS.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch{return}
  if(m.type==='welcome')pvpId=m.id;
  if(m.type==='waiting')pvpSetStatus('Aguardando adversário...');
  if(m.type==='match'){pvpRoom=m.room;pvpEnemy=m.enemy;pvpMe={x:m.you.x,hp:m.you.hp,shield:m.you.shield||0};document.getElementById('pvpMenu').style.display='none';document.getElementById('pvpEnemyName').textContent=m.enemy.nick;document.getElementById('pvpEnemyHp').textContent=m.enemy.hp;pvpReset();pvpStartCountdown()}
